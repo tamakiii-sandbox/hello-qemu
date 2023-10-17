@@ -15,7 +15,9 @@ jobs:
       - run: python -m pip install -r requirements.txt
       - run: git clone https://github.com/qemu/qemu.git qemu
       - run: git -C qemu switch refs/tags/v8.1.2 -c v8.1.2
-      - run: cd qemu && ./configure
+      - run: ./qemu/configure --help
+      - run: uname -a
+      - run: cd qemu && ./configure --enable-containers --target-list=arm-softmmu,avr-softmmu,x86_64-softmmu,riscv64-softmmu
       - run: make -C qemu
       - run: ls -lsah qemu/build
       - run: ls qemu/build/qemu-system-* | xargs file || true
