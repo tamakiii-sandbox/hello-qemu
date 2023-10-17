@@ -7,5 +7,5 @@ jobs:
       - uses: actions/checkout@v4
       - run: git clone https://github.com/qemu/qemu.git qemu
       - run: git -C qemu switch refs/tags/v8.1.2 -c v8.1.2
-      - run: ./configure
-      - run: make
+      - run: cd qemu && ./configure
+      - run: make -C qemu
