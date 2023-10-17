@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: python -m pip install -r requirements.txt
       - run: git clone https://github.com/qemu/qemu.git qemu
       - run: git -C qemu switch refs/tags/v8.1.2 -c v8.1.2
       - run: cd qemu && ./configure
