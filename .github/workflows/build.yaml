@@ -17,3 +17,4 @@ jobs:
       - run: git -C qemu switch refs/tags/v8.1.2 -c v8.1.2
       - run: cd qemu && ./configure
       - run: make -C qemu
+      - run: ls qemu/build/qemu-system-* | xargs file || true
